@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Search App</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #1e1e2f, #12121c);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        color: #fff;
+      }
+
+      /* Glass Card */
+      .container {
+        background: rgba(44, 47, 74, 0.6);
+        backdrop-filter: blur(12px);
+        padding: 30px;
+        width: 360px;
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .container:hover {
+        transform: translateY(-5px) scale(1.01);
+      }
+
+      /* Title */
+      h1 {
+        margin-bottom: 20px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      /* Input */
+      input {
+        width: 85%;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        margin-bottom: 12px;
+        font-size: 14px;
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        transition: all 0.25s ease;
+      }
+
+      input::placeholder {
+        color: #aaa;
+      }
+
+      input:focus {
+        border: 1px solid #6c63ff;
+        box-shadow: 0 0 8px #6c63ff66;
+      }
+
+      /* Buttons */
+      button {
+        padding: 10px 16px;
+        border: none;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #6c63ff, #4caf50);
+        color: white;
+        cursor: pointer;
+        margin: 6px;
+        font-size: 14px;
+        transition: all 0.25s ease;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(108, 99, 255, 0.4);
+      }
+
+      /* Clear Button */
+      .clear-btn {
+        background: linear-gradient(135deg, #ff5f6d, #ff9966);
+      }
+
+      .clear-btn:hover {
+        box-shadow: 0 4px 12px rgba(255, 95, 109, 0.4);
+      }
+
+      /* Result Box */
+      #result {
+        margin-top: 18px;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+      }
+
+      /* History */
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 12px;
+      }
+
+      li {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 10px;
+        margin: 6px 0;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
+
+      li:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateX(6px);
+      }
+
+      /* Scrollbar (optional flex) */
+      ul::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      ul::-webkit-scrollbar-thumb {
+        background: #6c63ff;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>🌤 Weather App</h1>
+
+      <input type="text" id="cityInput" placeholder="Enter city name" />
+      <br />
+      <button onclick="getWeather()">Search</button>
+
+      <div id="result"></div>
+
+      <h3>Recent Searches</h3>
+      <ul id="history"></ul>
+
+      <button class="clear-btn" onclick="clearHistory()">Clear History</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
